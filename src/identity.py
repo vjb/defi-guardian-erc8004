@@ -32,6 +32,7 @@ class AgentIdentityManager:
         self.w3 = w3
         self.account_address = account_address
         
+        # Minimum ABI for contract calls
         self.abi = [
             {
                 "inputs": [{"internalType": "string", "name": "tokenURI", "type": "string"}],

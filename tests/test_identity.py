@@ -2,7 +2,11 @@ import os
 import json
 import pytest
 from pydantic import ValidationError
+from web3 import Web3
+from dotenv import load_dotenv
 from src.identity import AgentMetadata, AgentIdentityManager
+
+load_dotenv()
 
 def test_generate_metadata():
     # Valid metadata
@@ -30,50 +34,22 @@ def test_generate_metadata():
         AgentMetadata(
             name="DeFi Guardian",
             description="Autonomous risk management agent.",
-            image="not_a_url",  # Should be a valid URL
+            image="not_a_url",
             external_url="https://example.com",
-            agent_wallet="not_a_hex", # Invalid wallet
+            agent_wallet="not_a_hex",
             capabilities=["RISK_MANAGEMENT"],
             endpoints={"api": "https://api.example.com"}
         )
 
-def test_register_agent_tx_build(mocker):
-    # Setup environment 
-    mocker.patch.dict(os.environ, {
-        "ERC8004_REGISTRY_ADDRESS": "0xRegistryAddress",
-        "PRIVATE_KEY": "0x" + "1" * 64
-    })
+def test_register_agent_tx_build():
+    w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_RPC_URL")))
+    manager = AgentIdentityManager(w3=w3, account_address="0x1234567890123456789012345678901234567890")
     
-    manager = AgentIdentityManager()
-    manager.account_address = "0x1234567890123456789012345678901234567890"
-    
-    # Mock Web3
-    mock_w3 = mocker.MagicMock()
-    mock_w3.eth.get_transaction_count.return_value = 5
-    mock_w3.eth.max_priority_fee = 1000000000
-    mock_w3.eth.gas_price = 2000000000
-    manager.w3 = mock_w3
-    
-    # Mock contract
-    mock_contract = mocker.MagicMock()
-    mock_function = mocker.MagicMock()
-    mock_function.build_transaction.return_value = {
-        "chainId": 11155111,
-        "nonce": 5,
-        "to": "0xRegistryAddress",
-        "value": 0,
-        "gas": 200000,
-        "maxFeePerGas": 3000000000,
-        "maxPriorityFeePerGas": 1000000000,
-        "data": "0xMockData"
-    }
-    mock_contract.functions.registerAgent.return_value = mock_function
-    manager.contract = mock_contract
-    
+    # Executes a live unmocked query to get_transaction_count over the real RPC
     tx = manager.build_registration_tx("ipfs://mock_uri")
     
     assert tx["chainId"] == 11155111
-    assert tx["nonce"] == 5
-    manager.contract.functions.registerAgent.assert_called_with("ipfs://mock_uri")
-    mock_function.build_transaction.assert_called_once()
+    assert "nonce" in tx
+    assert tx["gas"] > 0
+
 

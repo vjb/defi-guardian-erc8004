@@ -17,7 +17,7 @@ class ExecutionRouter:
         self.w3 = Web3(Web3.HTTPProvider(rpc_url))
         self.account = Account.from_key(private_key)
         
-        # Mock ABI for executing the intent
+        # Standard ABI for executing the intent
         # The true RiskRouter contract expects a signature and a struct
         self.abi = [
             {

@@ -1,58 +1,28 @@
 import os
 import pytest
-from unittest.mock import MagicMock
+import time
 from eth_account import Account
+from dotenv import load_dotenv
+from eth_account.messages import encode_typed_data
 from src.chain_utils import Web3Manager
 
-def test_web3_connection(mocker):
-    # Setup mock env vars
-    mocker.patch.dict(os.environ, {
-        "WEB3_RPC_URL": "https://test.rpc",
-        "PRIVATE_KEY": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
-        "RISK_ROUTER_ADDRESS": "0x1234567890123456789012345678901234567890"
-    })
-    
-    # Mock Web3 connection
-    mock_w3 = MagicMock()
-    mock_w3.is_connected.return_value = True
-    mocker.patch("src.chain_utils.Web3", return_value=mock_w3)
+load_dotenv()
 
+def test_web3_connection():
     manager = Web3Manager()
-    assert manager.w3.is_connected() == True
+    assert manager.w3.is_connected() is True
 
-@pytest.fixture
-def mock_env(mocker):
-    # Valid 32-byte private key for testing
-    pk = "0x" + "1" * 64
-    mocker.patch.dict(os.environ, {
-        "WEB3_RPC_URL": "https://test.rpc",
-        "PRIVATE_KEY": pk,
-        "RISK_ROUTER_ADDRESS": "0x000000000000000000000000000000000000dEaD"
-    })
-    
-    mock_w3 = MagicMock()
-    mock_w3.is_connected.return_value = True
-    mocker.patch("src.chain_utils.Web3", return_value=mock_w3)
-    return pk
-
-def test_eip712_signature(mock_env):
+def test_eip712_signature():
     manager = Web3Manager()
     
     action = "LIQUIDATE"
     threshold = 1500
-    
-    # We will mock timestamp to be deterministic if needed, or we just extract the signature and recover it.
-    import time
     timestamp = int(time.time())
     
-    # Actually let's just test that sign_trade_intent returns a string of the correct length and recover matches
     signature = manager.sign_trade_intent(action, threshold, timestamp)
     
     assert isinstance(signature, str)
     assert signature.startswith("0x")
-    
-    # Recover the address to verify signature
-    from eth_account.messages import encode_typed_data
     
     typed_data = {
         "types": {
@@ -73,7 +43,7 @@ def test_eip712_signature(mock_env):
             "name": "DeFiGuardian",
             "version": "1",
             "chainId": 11155111,
-            "verifyingContract": "0x000000000000000000000000000000000000dEaD"
+            "verifyingContract": os.getenv("RISK_ROUTER_ADDRESS")
         },
         "message": {
             "action": action,
@@ -86,3 +56,20 @@ def test_eip712_signature(mock_env):
     recovered_address = Account.recover_message(encoded_message, signature=signature)
     
     assert recovered_address.lower() == manager.account.address.lower()
+
+def test_hackathon_contracts_are_real():
+    manager = Web3Manager()
+    
+    # Prove the Risk Router is a deployed smart contract
+    risk_router = os.getenv("RISK_ROUTER_ADDRESS")
+    assert risk_router is not None
+    router_code = manager.w3.eth.get_code(risk_router)
+    assert len(router_code) > 2, f"RISK_ROUTER_ADDRESS {risk_router} has no deployed bytecode on Sepolia!"
+    
+    # Prove the Registry is a deployed smart contract
+    registry = os.getenv("ERC8004_REGISTRY_ADDRESS")
+    assert registry is not None
+    registry_code = manager.w3.eth.get_code(registry)
+    assert len(registry_code) > 2, f"ERC8004_REGISTRY_ADDRESS {registry} has no deployed bytecode on Sepolia!"
+
+
