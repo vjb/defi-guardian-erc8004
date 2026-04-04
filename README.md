@@ -88,7 +88,7 @@ python guardian_terminal.py
 ## Documentation & Verification
 - **Architecture Reference:** [`docs/surge_hackathon_rubric.md`](docs/surge_hackathon_rubric.md)
 - **Terminal Execution Trace:** [`docs/execution_log.txt`](docs/execution_log.txt)
-- **Live On-Chain Verification:** [Etherscan Sepolia Transaction Hash](https://sepolia.etherscan.io/tx/0x67a189cc25b433765d1e435840276cf6c79a017887a619ff5a0d0207b8495b27)
+- **Live On-Chain Verification:** [Etherscan Sepolia Transaction Hash](https://sepolia.etherscan.io/tx/0x1112fa9a615aaeb80b1a30ed307fb3f825356b74701008753ebd9d754264bb58)
 
 ---
 

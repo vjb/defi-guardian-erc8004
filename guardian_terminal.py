@@ -39,7 +39,7 @@ def main():
         services=[{"name": "web", "endpoint": "https://web.agentxyz.com/"}],
         x402Support=False,
         active=True,
-        registrations=[{"agentId": 22, "agentRegistry": "eip155:11155111:0x97b07dDc405B0c28B17559aFFE63BdB3632d0ca3"}],
+        registrations=[{"agentId": 7, "agentRegistry": "eip155:11155111:0x97b07dDc405B0c28B17559aFFE63BdB3632d0ca3"}],
         supportedTrust=["reputation", "crypto-economic", "tee-attestation"]
     )
     
