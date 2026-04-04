@@ -22,8 +22,8 @@ To ensure institutional grade code and maximum hackathon scoring, we pivoted to 
 3. **Python Rich CLI:** Enforces the "God-Mode" terminal UI, guaranteeing flawless presentation logic without RPC rendering bugs.
 4. **Strykr PRISM Signals:** Natively integrates the Sponsor `api.prismapi.ai/signals/{symbol}` endpoint to actively pull AI momentum metrics.
 
-## Prize Targeting Architecture ($15,000+ Potential)
-By abandoning the Kraken Challenge (which requires raw PnL and Twitter engagement), this repository statically optimizes for the pure-engineering ERC-8004 prize pool:
-- 🏆 **Best Trustless Trading Agent ($10k)**
-- 🏆 **Best Compliance & Risk Guardrails ($2.5k)**
-- 🏆 **Best Validation & Trust Model ($2.5k)**
+## Strategic Architecture
+By building fundamentally around the ERC-8004 specification, this repository strictly optimizes for:
+- **Trustless Trading Agent Infrastructure**
+- **Compliance & Risk Guardrails**
+- **Validation & Trust Modeling**

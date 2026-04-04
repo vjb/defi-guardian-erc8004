@@ -10,11 +10,9 @@
 ## Project Overview
 Current generative trading bots act as volatile black-boxes trying to predict alpha. But institutions don't just need alpha; they need **mathematical guarantees against catastrophic loss.**
 
-**DeFi Guardian** entirely bypasses centralized risk management strategies by acting as an autonomous terminal agent deeply integrated with the official **ERC-8004 Trustless Agents Specification**. Powered by the Strykr PRISM AI Signals API, the Guardian actively monitors live market thresholds and cryptographically executes non-custodial `EIP-712` circuit breakers to the Ethereum Sepolia Risk Router the exact moment structural failure is detected.
-
-> **View our Complete Hackathon Judging Rubric & Verification Map:** [`docs/surge_hackathon_rubric.md`](docs/surge_hackathon_rubric.md)
->
-> 🛑 **JUDGES: Do not want to run the code locally?** You can read the exact unedited raw terminal trace of the execution—verifying the ERC-8004 Schema, PRISM AI fetch, and Cryptographic EIP-712 payload generation right here: [`docs/execution_log.txt`](docs/execution_log.txt)
+> **Architecture Reference & Verification Map:** [`docs/surge_hackathon_rubric.md`](docs/surge_hackathon_rubric.md)
+> 
+> **View Raw Execution Log Trace:** [`docs/execution_log.txt`](docs/execution_log.txt)
 
 ## Core Capabilities
 
@@ -27,8 +25,8 @@ Current generative trading bots act as volatile black-boxes trying to predict al
 3. **Non-Custodial Circuit Breakers**  
    When a structural asset failure is identified (e.g., Extreme Bearish Divergence), the agent skips vulnerable centralized exchanges. It generates an EIP-155 safe, cross-chain resistant cryptographic payload (EIP-712). This intent is broadcast securely and executed natively by the Surge Risk Router's smart contracts.
 
-### Optional Enhancements Achieved
-We specifically engineered the Guardian to fulfill the hackathon's advanced technical directives:
+### Advanced Ecosystem Enhancements
+We specifically engineered the Guardian to fulfill advanced institutional security directives:
 - **Portfolio risk modules enforced on-chain:** Our entire architecture abandons weak web2 market-sells, enforcing circuit breakers fundamentally via on-chain contract verifications.
 - **TEE-backed attestations:** The registration explicitly structures for `"tee-attestation"` within its `supportedTrust` arrays, cementing readiness for secure enclave validation.
 
