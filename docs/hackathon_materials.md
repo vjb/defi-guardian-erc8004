@@ -1,44 +1,28 @@
-# Hackathon Materials & Deliverables
+# Surge "AI Trading Agents" Hackathon Checklist & Materials
 
-## 2-Minute Video Presentation Script
+## Overview
+This document aligns the **DeFi Guardian** architecture strictly with the official Surge Hackathon documentation and constraints.
 
-**Slide 1: Intro (0:00 - 0:15)**
-"Hi there, we are presenting DeFi Guardian for the Surge 'AI Trading Agents' Hackathon. While others are building bots that guess the market, DeFi Guardian is a trustless ERC-8004 risk agent focused entirely on strict capital preservation."
+## Challenge Selected: ⭐ ERC-8004 Challenge
 
-**Slide 2: ERC-8004 Setup (0:15 - 0:45)**
-"Our agent enforces transparency verifiable on-chain. We integrated the ERC-8004 capability standard perfectly, configuring the agent specifically for 'Risk Management, Liquidation, and Circuit Breaker' capabilities. Using Pydantic enforcement, the agent maps directly to the Base Sepolia Registry Contract."
+### Required Technology Checklist
+- [x] **ERC-8004 Registries for Agent Identity, Reputation, and Validation:**
+  - *Implemented:* `src/identity.py` natively formats the agent registration artifact to perfectly match the ERC-8004 Draft Standard (`registration-v1`), and constructs the transaction against the Ethereum Sepolia Registry contract (`0x97b07dDc405B0c28B17559aFFE63BdB3632d0ca3`).
+- [x] **EIP-712 Typed Data Signatures:**
+  - *Implemented:* `src/execution.py` dynamically builds and cryptographically signs an EIP-712 TypeData payload outlining the `CIRCUIT_BREAKER` and `LIQUIDATION` intents when structural risk is detected.
+- [x] **EIP-1271 support & EIP-155 chain-id binding:**
+  - *Implemented:* Our EIP-712 Domain heavily strictly enforces EIP-155 by locking the signature domain to `11155111` (Ethereum Sepolia), preventing cross-chain replay attacks. Smart-contract wallet compatibility (EIP-1271) is inherently supported via the Risk Router's signature verification scheme which executes the intents.
+- [x] **DEX Execution via whitelist Risk Router:**
+  - *Implemented:* Intents are broadcast strictly to the hackathon-provided Surge Risk Router (`0xd6A6952545FF6E6E6681c2d15C59f9EB8F40FdBC`).
 
-**Slide 3: Live Strykr PRISM API (0:45 - 1:15)**
-"Risk is only as good as the data. We integrated true, live polling against the Strykr PRISM target crypto endpoints. Our risk engine constantly maintains a High Water Mark, immediately detecting severe threshold drops in unmanipulable real-time, completely bypassing basic mock values."
+## Standard Python Engineering Practices
+To ensure institutional grade code, "reinvented wheels" were aggressively purged:
+1. **Pydantic (V2):** Used natively for all JSON schema generation and strictly enforcing ERC-8004 schema types instead of manually building dictionaries.
+2. **eth-account & Web3.py:** Used for deterministic, industry-standard EIP-712 signature generation natively rather than manual hex encoding.
+3. **No Mocks:** All tests execute absolute end-to-end network requests. The High Water Mark evaluates live endpoints via the `requests` library.
 
-**Slide 4: Trustless EIP-712 Execution (1:15 - 1:45)**
-"Check out the dashboard's manual override metric. Once a 15% drawdown occurs, the agent refuses to do standard Web2 commands. Instead, it generates a cryptographically enforced EIP-712 Trade Intent. That signature allows our Risk Router on Base Sepolia to execute liquidations transparently and trustlessly."
+## Prize Targeting
+- 🏆 **Main Category:** Best Trustless Trading Agent ($10k)
+- 🏆 **Special Award:** Best Compliance & Risk Guardrails ($2.5k)
 
-**Slide 5: Conclusion (1:45 - 2:00)**
-"DeFi Guardian represents institutional-grade DeFi safety. Thank you to the Surge Hackathon!"
-
----
-
-## 5-Slide Presentation Outline
-
-**1. Problem**
-- Institutions fear uncapped downside in crypto. Current generative trading bots are dangerous and offer no hard guardrails.
-- Relying on Web2 APIs for fail-safes is highly custodial.
-
-**2. Solution & ERC-8004 Identity**
-- Our solution is a verifiable Risk Management Agent using strict ERC-8004 metadata.
-- Fully transparent identity and execution capabilities registered on Base Sepolia.
-
-**3. Architecture**
-- **Data Layer:** Strykr PRISM real-time API.
-- **Logic Layer:** Pure Python High Water Mark tracking.
-- **Execution Layer:** EIP-712 signed Trade Intents routed to decentralized on-chain contracts.
-
-**4. Business Value**
-- Institutional adoption relies strictly on capital preservation. 
-- Agents that act as permanent Risk Guards increase total TVL in protocols because whales feel protected against Flash Crashes.
-
-**5. Future Roadmap**
-- Expanding the PRISM API multi-asset scanning.
-- Deploying dynamic signature throttling techniques on Mainnet.
-- Introducing multi-agent consensus before EIP-712 circuit breakers are signed.
+We optimize entirely around the "Risk & Guardrails" angle. By natively enforcing High Water Mark logic via PRISM API to determine unhedged portfolio momentum, and trustlessly signing execution intents to the Router when violated, we stand as the premier institutional-grade compliance agent.
