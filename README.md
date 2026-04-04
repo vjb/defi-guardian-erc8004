@@ -1,7 +1,7 @@
 # DeFi Guardian: The ERC-8004 Institutional Risk Sentry
 
 <p align="center">
-  <b>Built for the Surge "AI Trading Agents" Hackathon</b><br>
+  <b>High-Fidelity Automated Defense Infrastructure</b><br>
   <i>Trustless Risk Management and EIP-712 Intent Execution</i>
 </p>
 
@@ -20,7 +20,7 @@ Current generative trading bots act as volatile black-boxes trying to predict al
    The Guardian mathematically locks its payload to the exact "registration-v1" specification. This proves to the smart contracts that it is a verifiably registered agent permitted for autonomous operation over the **Ethereum Sepolia blockchain** (Network ID: 11155111).
 
 2. **Institutional Signal Polling**  
-   Rather than making simple moving average guesses, the Guardian natively integrates the **Strykr PRISM AI Signals API** (`/signals/{symbol}`). This fetches deep, multi-source consensus metrics directly from the sponsors' institutional data feeds.
+   Rather than making simple moving average guesses, the Guardian natively integrates the **Strykr PRISM AI Signals API** (`/signals/{symbol}`). This fetches deep, multi-source consensus metrics directly from active institutional data feeds.
 
 3. **Non-Custodial Circuit Breakers**  
    When a structural asset failure is identified (e.g., Extreme Bearish Divergence), the agent skips vulnerable centralized exchanges. It generates an EIP-155 safe, cross-chain resistant cryptographic payload (EIP-712). This intent is broadcast securely and executed natively by the Surge Risk Router's smart contracts.
