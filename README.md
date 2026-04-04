@@ -14,6 +14,33 @@ Current generative trading bots act as volatile black-boxes trying to predict al
 > 
 > **View Raw Execution Log Trace:** [`docs/execution_log.txt`](docs/execution_log.txt)
 
+## The Trustless Execution Loop
+
+```mermaid
+sequenceDiagram
+    participant PRISM as Strykr PRISM API
+    participant Agent as DeFi Guardian Node
+    participant ERC8004 as Sepolia Trust Registry
+    participant Router as Surge Risk Router
+
+    Agent->>ERC8004: Validate Metadata (eip155:11155111)
+    Note over Agent,ERC8004: Capabilities: RISK_MANAGEMENT, CIRCUIT_BREAKER
+    
+    loop Real-Time Market Monitoring
+        Agent->>PRISM: Poll /signals/{symbol}
+        PRISM-->>Agent: AI Consensus (e.g., Bearish Divergence)
+    end
+    
+    Note over Agent: Structural Market Failure Detected!
+    
+    Agent->>Agent: Bypass Custodial CEX Executions
+    Agent->>Agent: Construct EIP-155 Safe Payload
+    Agent->>Agent: Sign EIP-712 Intent Cryptographically
+    
+    Agent->>Router: Broadcast Non-Custodial Circuit Breaker
+    Router-->>Agent: Verification Success. Portfolio Secured.
+```
+
 ## Core Capabilities
 
 1. **Trustless Ecosystem Verification**  
