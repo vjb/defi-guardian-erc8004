@@ -96,7 +96,19 @@ def main():
             expand=False
         )
         console.print(intent_panel)
-        console.print(f"[[green]{get_timestamp()}[/green]] [bold]🚀 Payload broadcasted. Capital Successfully Protected from Market Drawdown.[/bold]")
+        console.print(f"[[yellow]{get_timestamp()}[/yellow]] 🌐 Establishing secure RPC connection to Sepolia Network...")
+        
+        try:
+            router = ExecutionRouter()
+            tx_hash = router.submit_intent(
+                signature_hex, 
+                {"action": "LIQUIDATE", "threshold": int(evaluated['price']), "timestamp": int(time.time())}
+            )
+            console.print(f"[[green]{get_timestamp()}[/green]] [bold green]✅ ON-CHAIN EXECUTION SUCCESSFUL[/bold green]")
+            console.print(f"[[green]{get_timestamp()}[/green]] [bold]🚀 Payload verified by Risk Router and confirmed on Sepolia Block Explorers.[/bold]")
+            console.print(f"[[cyan]Live Etherscan Trace:[/cyan] https://sepolia.etherscan.io/tx/{tx_hash}]")
+        except Exception as e:
+            console.print(f"[[red]{get_timestamp()}[/red]] [bold red]❌ BROADCAST FAILED:[/bold red] {e}")
 
 if __name__ == "__main__":
     main()
