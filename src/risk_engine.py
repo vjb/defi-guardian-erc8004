@@ -32,7 +32,7 @@ class RiskEngine:
             response = requests.get(url, headers=headers)
             response.raise_for_status()
             data = response.json()
-            return float(data.get("price", 0.0))
+            return float(data.get("price_usd", 0.0))
         except requests.exceptions.RequestException as e:
             raise RuntimeError(f"PRISM Oracle evaluation failed: {e}")
 
