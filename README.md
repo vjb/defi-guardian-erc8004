@@ -42,7 +42,7 @@ pip install -r requirements.txt
 ```
 
 ### 2. Configure Environment (`.env`)
-You must configure the standard keys in `.env`. Mocks have been disabled to ensure hackathon authenticity.
+You must configure the standard keys in `.env`.
 
 ```env
 WEB3_RPC_URL=https://rpc.sepolia.org
