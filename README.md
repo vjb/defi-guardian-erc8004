@@ -17,7 +17,7 @@ Current generative trading bots act as volatile black-boxes trying to predict al
 ## Core Capabilities
 
 1. **Trustless Ecosystem Verification**  
-   The Guardian mathematically locks its payload to the exact "registration-v1" specification. This proves to the smart contracts that it is a verifiably registered agent permitted for autonomous operation over `eip155:11155111`.
+   The Guardian mathematically locks its payload to the exact "registration-v1" specification. This proves to the smart contracts that it is a verifiably registered agent permitted for autonomous operation over the **Ethereum Sepolia blockchain** (Network ID: 11155111).
 
 2. **Institutional Signal Polling**  
    Rather than making simple moving average guesses, the Guardian natively integrates the **Strykr PRISM AI Signals API** (`/signals/{symbol}`). This fetches deep, multi-source consensus metrics directly from the sponsors' institutional data feeds.
