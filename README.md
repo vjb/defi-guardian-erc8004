@@ -1,4 +1,4 @@
-# 🛡️ DeFi Guardian: The ERC-8004 Institutional Risk Sentry
+# DeFi Guardian: The ERC-8004 Institutional Risk Sentry
 
 <p align="center">
   <b>Built for the Surge "AI Trading Agents" Hackathon</b><br>
@@ -7,37 +7,37 @@
 
 ---
 
-## 📖 Project Overview
+## Project Overview
 Current generative trading bots act as volatile black-boxes trying to predict alpha. But institutions don't just need alpha; they need **mathematical guarantees against catastrophic loss.**
 
 **DeFi Guardian** entirely bypasses centralized risk management strategies by acting as an autonomous terminal agent deeply integrated with the official **ERC-8004 Trustless Agents Specification**. Powered by the Strykr PRISM AI Signals API, the Guardian actively monitors live market thresholds and cryptographically executes non-custodial `EIP-712` circuit breakers to the Ethereum Sepolia Risk Router the exact moment structural failure is detected.
 
 No Twitter spam. No unpredictable PnL battles. Just pure, institutional-grade mathematical defense mechanisms.
 
-> 🏆 **View our Complete Hackathon Judging Rubric & Verification Map:** [`docs/surge_hackathon_rubric.md`](docs/surge_hackathon_rubric.md)
+> **View our Complete Hackathon Judging Rubric & Verification Map:** [`docs/surge_hackathon_rubric.md`](docs/surge_hackathon_rubric.md)
 
 ---
 
-## 🎥 Pitch & Presentation
+## Pitch & Presentation
 Our codebase is designed to run flawlessly during demonstrations by utilizing an incredibly clean Python `Rich` terminal UI. 
 
 Please refer to [`docs/video_presentation_script.md`](docs/video_presentation_script.md) for the exact script, pacing, and visual prompts needed to record the perfect 2-minute hackathon pitch.
 
 ---
 
-## ⚡ Core Features
+## Core Features
 1. **Strict ERC-8004 Registration Schemas:** Uses Pydantic V2 to mathematically lock the agent payload precisely to the `"registration-v1"` specification over `eip155:11155111`.
 2. **True Native AI Signals:** Natively polls the Strykr PRISM sponsor endpoint (`/signals/{symbol}`) to extract verified institutional market consensus matrices.
 3. **Trustless Intent Execution:** Upon receiving a `bearish` signal, the agent skips centralized exchanges. It dynamically encodes EIP-155 safe EIP-712 domains and signs a cryptographically verifiable payload locally, ready for broadcast to the Surge Risk Router.
 
-### ⭐ Optional Enhancements Achieved
+### Optional Enhancements Achieved
 We specifically targeted the Surge Hackathon "Optional Enhancements" multipliers:
 - **Portfolio risk modules enforced on-chain:** Our entire architecture is structured around this premise. The agent acts solely as a risk oracle; the actual circuit breakers and liquidations are enforced strictly by the on-chain Risk Router validating our EIP-712 metrics.
 - **TEE-backed attestations:** The `AgentMetadata` registration explicitly includes `"tee-attestation"` in its verified `supportedTrust` payload, proving architectural readiness for secure enclave validation.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Requirements
 - Python 3.10+
@@ -65,7 +65,7 @@ python guardian_terminal.py
 
 ---
 
-## 🛠️ Testing Validations
+## Testing Validations
 Verified 100% against native Ethereum capabilities (Zero mocking):
 ```bash
 pytest tests/ -v
