@@ -19,28 +19,28 @@
 
 ---
 
-## 💻 Section 2: The UI & The Technology Stack (0:30 - 1:15)
+## 💻 Section 2: The Terminal & The Technology Stack (0:30 - 1:15)
 
-**[Screen Direction: Screen-share the Streamlit Institutional Dashboard. Slowly scroll down to show the active connection to Ethereum Sepolia and the 'Circuit Breaker' parameters]**
-
-**Speaker:**
-"Here is the institutional dashboard. Under the hood, the Guardian completely replaces centralized Auth0 workflows with native Web3 specifications. We enforce the ERC-8004 Agent Registration schema strictly—registering the agent mathematically on the Ethereum Sepolia registry and explicitly locking its capabilities exclusively to `RISK_MANAGEMENT`, `LIQUIDATION`, and `CIRCUIT_BREAKER`."
-
-**[Screen Direction: Click the 'Poll Live PRISM API' button so the live price updates on screen]**
+**[Screen Direction: Screen-share your standard IDE terminal window. Hit 'Enter' to run `python guardian_terminal.py`. Let the blue loading spinners begin extracting data]**
 
 **Speaker:**
-"To calculate risk, our engine tracks 'High Water Mark' drawdowns in real-time. We directly query the Strykr PRISM API to pull live asset prices. It dynamically tracks the highest watermark a portfolio achieves, and calculates structural downside risk perfectly."
+"Here is the institutional terminal loop. Under the hood, the Guardian completely enforces the ERC-8004 Agent Registration schema strictly—registering the agent mathematically on the Ethereum Sepolia registry and explicitly generating valid `RISK_MANAGEMENT` and `CIRCUIT_BREAKER` capabilities."
+
+**[Screen Direction: The terminal actively prints the fetched Live PRISM AI Signals]**
+
+**Speaker:**
+"To calculate risk, we don't rely on simple moving averages. We directly query the official Strykr PRISM AI Signals API. It dynamically tracks active market momentum consensus, feeding structural downside forecasts strictly back to the agent without external spoofing."
 
 ---
 
 ## 🚀 Section 3: The 'Aha!' Moment / Trustless Execution (1:15 - 1:55)
 
-**[Screen Direction: Smoothly hover over and click the 'Force Circuit Breaker Test (-25% Drop)' button. Make sure the screen is focused perfectly on the 'EXECUTION LEDGER' panel as it turns yellow, then flashes Green with the EIP-712 payload]**
+**[Screen Direction: Make sure the screen is focused perfectly on the terminal as it prints "Critical Risk Detected!" and unrolls the EIP-712 payload in bright Green hex text.]**
 
 **Speaker:**
-"This is where DeFi Guardian shines. Watch what happens when a 25% critical drawdown is breached. The agent does *not* execute a web2 custodial market order. "
+"This is where DeFi Guardian shines. Watch what happens when a critical `Bearish` metric is breached. The agent does *not* execute a web2 custodial market order. "
 
-"Instead it instantly kicks in the trustless execution sequence. It takes the intent, encodes it to meet EIP-155 Chain-ID bindings to prevent replay attacks, and locally generates a cryptographic **EIP-712 Signed TypeData signature**. That non-custodial signature is sent directly to the Surge Risk Router."
+"Instead, it instantly kicks in the trustless execution sequence. It takes the intent, encodes it to meet EIP-155 Chain-ID bindings to prevent replay attacks, and locally generates a cryptographic **EIP-712 Signed TypeData signature**. That non-custodial signature is mathematically ready to submit directly to the Surge Risk Router."
 
 **[Screen Direction: Highlight the text showing the raw hexadecimal signature block on the screen so the judges see the technical depth]**
 

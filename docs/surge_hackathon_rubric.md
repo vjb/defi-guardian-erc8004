@@ -15,14 +15,15 @@ This document aligns the **DeFi Guardian** architecture strictly with the offici
 - [x] **DEX Execution via whitelist Risk Router:**
   - *Implemented:* Intents are broadcast strictly to the hackathon-provided Surge Risk Router (`0xd6A6952545FF6E6E6681c2d15C59f9EB8F40FdBC`).
 
-## Standard Python Engineering Practices
-To ensure institutional grade code, "reinvented wheels" were aggressively purged:
-1. **Pydantic (V2):** Used natively for all JSON schema generation and strictly enforcing ERC-8004 schema types instead of manually building dictionaries.
-2. **eth-account & Web3.py:** Used for deterministic, industry-standard EIP-712 signature generation natively rather than manual hex encoding.
-3. **No Mocks:** All tests execute absolute end-to-end network requests. The High Water Mark evaluates live endpoints via the `requests` library.
+## Standard Engineering Practices
+To ensure institutional grade code and maximum hackathon scoring, we pivoted to a developer-native Terminal Interface to prioritize execution reliability over UI rendering overhead:
+1. **Pydantic (V2):** Used natively for all JSON schema generation and strictly enforcing ERC-8004 schema types.
+2. **eth-account & Web3.py:** Used for deterministic, industry-standard EIP-712 signature generation completely offline.
+3. **Python Rich CLI:** Enforces the "God-Mode" terminal UI, guaranteeing flawless presentation logic without RPC rendering bugs.
+4. **Strykr PRISM Signals:** Natively integrates the Sponsor `api.prismapi.ai/signals/{symbol}` endpoint to actively pull AI momentum metrics.
 
-## Prize Targeting
-- 🏆 **Main Category:** Best Trustless Trading Agent ($10k)
-- 🏆 **Special Award:** Best Compliance & Risk Guardrails ($2.5k)
-
-We optimize entirely around the "Risk & Guardrails" angle. By natively enforcing High Water Mark logic via PRISM API to determine unhedged portfolio momentum, and trustlessly signing execution intents to the Router when violated, we stand as the premier institutional-grade compliance agent.
+## Prize Targeting Architecture ($15,000+ Potential)
+By abandoning the Kraken Challenge (which requires raw PnL and Twitter engagement), this repository statically optimizes for the pure-engineering ERC-8004 prize pool:
+- 🏆 **Best Trustless Trading Agent ($10k)**
+- 🏆 **Best Compliance & Risk Guardrails ($2.5k)**
+- 🏆 **Best Validation & Trust Model ($2.5k)**
