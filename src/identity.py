@@ -3,25 +3,33 @@ from typing import List, Dict, Optional
 from pydantic import BaseModel, HttpUrl, Field, field_validator
 from web3 import Web3
 
-class AgentEndpoints(BaseModel):
-    api: HttpUrl
-    mcp: Optional[HttpUrl] = None
+class AgentService(BaseModel):
+    name: str
+    endpoint: str
+    version: Optional[str] = None
+    skills: Optional[List[str]] = None
+    domains: Optional[List[str]] = None
+
+class AgentRegistration(BaseModel):
+    agentId: int
+    agentRegistry: str
 
 class AgentMetadata(BaseModel):
+    type: str = Field(default="https://eips.ethereum.org/EIPS/eip-8004#registration-v1")
     name: str
     description: str
-    image: HttpUrl
-    external_url: HttpUrl
-    agent_wallet: str = Field(..., pattern=r"^0x[a-fA-F0-9]{40}$")
-    capabilities: List[str] = Field(default=["RISK_MANAGEMENT", "LIQUIDATION", "CIRCUIT_BREAKER"])
-    endpoints: AgentEndpoints
-
-    @field_validator('capabilities')
+    image: str
+    services: List[AgentService]
+    x402Support: bool = False
+    active: bool = True
+    registrations: List[AgentRegistration]
+    supportedTrust: Optional[List[str]] = None
+    
+    @field_validator('type')
     @classmethod
-    def check_capabilities(cls, v: List[str]) -> List[str]:
-        required = ["RISK_MANAGEMENT", "LIQUIDATION", "CIRCUIT_BREAKER"]
-        if not all(cap in v for cap in required):
-            raise ValueError(f"Capabilities must include all of {required}")
+    def validate_type(cls, v: str) -> str:
+        if v != "https://eips.ethereum.org/EIPS/eip-8004#registration-v1":
+            raise ValueError("Type must match ERC-8004 specification.")
         return v
 
 class AgentIdentityManager:
