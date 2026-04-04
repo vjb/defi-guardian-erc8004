@@ -1,0 +1,713 @@
+Revisit consent button
+
+
+
+
+
+
+
+
+lablab.ai logo - Community innovating and building with artificial intelligence
+Search lablab.ai
+AI Hackathons
+AI Apps
+AI Tech
+AI Tutorials
+AI Articles
+Surge
+Sponsor
+
+2495
+
+Monday, March 30 2026 - 12:00 PM Eastern Daylight Time
+AI Trading Agents
+Unleash the power of ERC-8004 & Kraken CLI
+⏱️ Design, build, and deploy trustless AI trading agents.
+
+
+
+📅 March 30 – April 12, 2026
+
+
+
+🌐 Build AI trading agents that execute strategies using ERC-8004 or Kraken CLI.
+
+
+
+🤝 Build solo or in teams to create autonomous trading, risk, yield, or protection agents.
+
+
+
+💰 $55,000 prize pool, allocated and shared via Surge and Kraken.
+
+
+
+Your team should have registered project at early.surge.xyz in order to be eligible for the prize.
+
+
+
+Get access in your team profile or our discord.
+
+
+
+🔑 Access to early.surge.xyz 
+
+If prompted for login credentials, use:
+
+• Username: admin
+
+• Password: JBRv2xWG7AzwVrLz88
+
+Enroll now!
+AI Trading Agents  event thumbnail
+About
+Challenge
+Technology & Access
+Technology Partners
+Prizes
+Community & Social Channels
+What to Submit?
+Judging Criteria
+Hackathon Details
+Speakers
+Event Schedule
+Teams
+About
+This hackathon focuses on one of the most critical challenges in AI today: enabling agents to operate with verifiable trust and real financial capability.
+
+
+
+Participants will build AI trading and financial agents that can: 
+
+1. Safely interact with capital
+2. Execute strategies
+3. Demonstrate transparent behavior. 
+
+
+This hackathon has two challenges: teams can enter one, the other, or combine both into a single submission.
+
+
+
+Build autonomous trading agents using Kraken CLI, the AI-native command-line interface for programmatic trading, or leverage ERC-8004 registries to establish agent identity, reputation, and validation signals for trustless financial agents. Winners can emerge from either challenge or a combined submission.
+
+
+
+Builders will work with production-style infrastructure, capital sandboxes, and risk controls, enabling them to move beyond demos and toward deployable AI trading agents.
+
+
+
+
+
+
+Challenge
+Build an AI agent that performs a real financial function (trade, manage risk, optimize yield, or protect capital.
+
+
+
+This hackathon has two equal challenges. Teams can choose to enter one or both. Winners can come from either challenge or a combined submission.
+
+
+
+🎯 Kraken Challenge
+Build an autonomous trading agent that:
+
+
+
+• Uses Kraken CLI to retrieve market data and execute trades
+• Implements AI-driven strategies that analyze signals and trade programmatically
+• Shares development progress publicly as part of the hackathon build-in-public culture
+
+
+Trading agents will be ranked based on net PnL performance during the competition period.
+
+
+
+⭐ The Kraken Challenge includes additional prizes on top of the main hackathon prizes.
+
+
+
+🔗 ERC-8004 Challenge
+Build a trustless trading or financial agent that:
+
+
+
+• Registers identity on the ERC-8004 Identity Registry
+• Accumulates measurable reputation from objective outcomes
+• Produces validation artifacts for key actions, trade intents, risk checks, strategy checkpoints
+
+
+The agent must operate through the Hackathon Capital Sandbox provided vault and risk router so performance can be measured on-chain in stablecoin terms.
+
+
+
+Rankings are based on risk-adjusted profitability, drawdown control, and validation quality, not just raw PnL.
+
+
+
+🤝 Combining Both Challenges
+Teams are encouraged to combine both challenges into a single submission. For example, integrating ERC-8004 registries into a Kraken CLI agent adds transparent identity, reputation tracking, and validation artifacts to autonomous trading activity. Combined submissions are eligible for prizes from both challenges.
+
+
+
+⚠️ Important: Prize Eligibility Requirement
+Your team should have registered the project at https://early.surge.xyz in order to be eligible for the prize.
+
+
+
+🔑 Access to early.surge.xyz
+If prompted for login credentials, use:
+
+
+
+Username: admin
+Password: JBRv2xWG7AzwVrLz88
+
+
+Technology & Access
+This hackathon has two equal challenges. Teams may enter one or both. Below are the technical requirements for each.
+
+
+
+Required technology:
+
+• Kraken CLI: a zero-dependency Rust binary with built-in MCP server and full Kraken API connectivity
+
+• A read-only Kraken API key linked to your trading account (for leaderboard verification, no withdrawal access required)
+
+
+How to get started:
+
+1. Install Kraken CLI from the official repository
+2. Configure API access and connect it to your agent
+3. Build your agent: implement an autonomous workflow where your AI analyzes market signals and executes trades programmatically through Kraken CLI
+4. Share your progress publicly as part of the Social Engagement challenge
+
+
+Resources:
+
+• Kraken CLI GitHub repository
+
+• Kraken CLI announcement
+
+
+ERC-8004 Challenge: Technology & Access
+Required technology:﻿
+
+• ERC-8004 registries for Agent Identity, Reputation, and Validation. Deploy on an L2 or testnet (mainnet optional)
+
+• EIP-712 typed data signatures for trade intents and attestations
+• EIP-1271 support for smart-contract wallets; EIP-155 chain-id binding
+• DEX execution via a whitelisted Risk Router contract (hackathon-provided — e.g., Uniswap-style routers)
+
+
+How to access the infrastructure:
+
+1. Register your agent: Mint and register an Agent Identity (ERC-721) pointing to your Agent Registration JSON, capabilities, endpoints, and agent wallet
+2. Claim sandbox capital: Each team receives a funded sub-account in the Hackathon Capital Vault (test funds by default; optional small real-capital pool for finals)
+3. Execute via Risk Router: Agents submit signed TradeIntents. The Risk Router enforces position size limits, max leverage, whitelisted markets, and daily loss limits
+4. Record trust signals: Every trade and checkpoint emits on-chain events. Validators post scores to the Validation Registry. PnL signals and validator scores feed agent's reputation
+5. Leaderboard: lablab.ai publishes a transparent leaderboard tracking PnL, Sharpe ratio, drawdown, and validation score
+
+
+📘Resources:
+• EIP-8004 Specification
+
+• ERC-8004 forum discussion
+• Developer walkthrough article (Solidity + JS examples)
+• Optional Curated Resources
+
+
+Optional Enhancements (for either or both challenges)
+These are not required, but can strengthen any submission:
+
+• TEE-backed attestations or verifiable execution proofs (e.g., TEE oracle; zkML validation)
+• Off-chain indexers or subgraphs for discovery dashboards and leaderboards
+• Portfolio risk modules (limits, circuit breakers, stop-loss policies) enforced on-chain
+Technology Partners 
+
+Kraken provides one of the most established trading infrastructures in the crypto industry, supporting markets across crypto, forex, and derivatives. For this hackathon, builders can develop autonomous trading agents using the Kraken CLI, the first AI-native command-line interface designed for programmatic trading.
+
+
+
+Kraken CLI is a zero-dependency Rust binary that provides direct access to Kraken trading infrastructure. It ships with a built-in Model Context Protocol (MCP) server, full Kraken API connectivity, and a local paper-trading sandbox for testing strategies. The CLI handles complex exchange operations automatically, including cryptographic nonce management, HMAC-SHA512 request signing, and rate-limit retries. This allows developers to focus on building autonomous AI trading logic and strategies, rather than exchange connectivity.
+
+
+
+🏆 Kraken Challenge: Evaluation
+Agents in the Kraken Challenge are evaluated across two independent categories.
+
+
+
+1️⃣ Trading Performance (PnL)
+Agents are ranked purely by net PnL (realized + unrealized) over the competition period.
+
+
+
+How it works:
+
+• Submission: Each participant provides a read-only Kraken API key linked to their trading account. This allows lablab.ai and Kraken to view trade history — no execution or withdrawal access is granted.
+
+• Verification: lablab.ai maintains a live leaderboard tracking performance in real time.
+
+• Audit: Kraken performs a final audit on top agents before prizes are distributed.
+• Ranking: Winners are determined solely by net PnL at the end of the competition window.
+
+
+Requirements:
+
+Agents must use Kraken CLI as the execution layer
+One submission per participant or team
+
+
+2️⃣ Social Engagement
+Build in public. Share your journey. Inspire the community.
+
+
+
+Over a 30-day window, participants earn a Social Engagement Score based purely on quantitative metrics from public platforms: Twitter/X, YouTube, blogs, or other channels.
+
+
+
+How Winners are Determined:
+lablab.ai tracks engagement metrics: impressions, likes, shares, and reach across linked social accounts
+Rankings are determined purely by quantitative data: no subjective judging
+Participants can monitor their position throughout the competition window
+
+
+📣 When Posting, Tag:
+Kraken
+
+X: @krakenfx
+IG:@krakenfx
+LI: Kraken
+
+
+LabLab
+
+X: @lablabai
+IG: @lablab.ai
+LI: lablab.ai
+
+
+Surge
+
+X: @Surgexyz_
+LI: Surge.xyz
+
+
+🚀 How to Get Started
+Kraken Challenge:
+
+1. Install the Kraken CLI from the official repository
+2. Configure your Kraken API access and connect it to your agent
+3. Build an autonomous AI trading agent that analyzes signals and executes trades through Kraken CLI
+4. Share your progress publicly as part of the Social Engagement challenge
+
+
+ERC-8004 Challenge:
+
+1. Register your agent identity on the ERC-8004 Identity Registry
+2. Claim your sandbox capital from the Hackathon Capital Vault
+3. Build your trustless trading or financial agent operating through the Risk Router
+4. Record trust signals and compete on the on-chain leaderboard
+
+
+Combining both? Start with either challenge, then layer in the other for a combined submission eligible for prizes from both.
+
+
+
+📘 Resources
+• Kraken CLI GitHub Repository
+• Kraken CLI Announcement
+• EIP-8004 Specification
+• ERC-8004 forum discussion
+• Developer walkthrough article (Solidity + JS examples) 
+
+
+
+Strykr is an agent-first market intelligence and execution platform that enables developers, traders, and AI systems to access and act on real-time financial data across all markets.
+
+At its core is PRISM, a canonical asset resolution engine that maps any ticker, symbol, or contract address across crypto, equities, forex, commodities, and more into a single persistent identity. PRISM continuously learns from usage, ensuring new or obscure assets are instantly resolvable.
+
+
+
+The platform combines:
+
+ • Real-time market data (20+ sources)
+
+ • AI-powered signals and analysis
+
+ • Execution integrations via deep links (perps, DEXs, brokers)
+
+ • A developer-ready API (244 endpoints, sub-100ms latency)
+
+
+
+Strykr enables a full workflow from intent → insight → execution, making it possible for both humans and autonomous agents to trade and analyze markets in one unified system.
+
+
+
+Access to Technology
+The first 500 participants will receive $10 in free API credits (~15K calls), plus access to PRISM’s multi-asset market and signals API. Total credits available: $5,000.
+
+How to get started (2–3 min setup):
+
+1. Sign up at prismapi.ai
+2. Redeem code: LABLAB
+3. Create your API key (prism_sk_...)
+4. Test your key:
+curl -H "X-API-Key: YOUR_KEY" https://api.prismapi.ai/resolve/BTC
+
+
+What you can build:
+• Trading agents (signals, risk, technicals)
+• Market dashboards (crypto, stocks, ETFs)
+• On-chain + DEX analytics
+• Prediction/odds-based apps
+
+
+Key API endpoints:
+• /resolve/{asset} → universal asset identity
+• /crypto/{symbol}/price → real-time prices
+• /signals/{symbol} → AI signals
+• /risk/{symbol} → volatility + metrics
+
+
+
+Limits: Free tier + credits included - no upgrade needed to start.
+
+
+📘Resources
+• PRISM Documentation+ Dashboard
+• PRISM API Documentation
+• Strykr AI Market Pulse iOS App
+• Strykr.ai Twitter/X
+
+⚠️ Important Notes:
+
+• Credits are provided by PRISM and are subject to their delivery.
+• Lablab is not responsible or liable if PRISM does not provide the credits.
+• Please note that PRISM is a subscription-based service. If you do not plan to continue using it after the hackathon, remember to cancel your subscription to avoid any charges.
+
+
+
+
+Aerodrome Finance is a decentralized liquidity marketplace designed to power efficient token trading and liquidity coordination on the Base ecosystem. Aerodrome combines automated market making, liquidity incentives, and governance to create a powerful platform where developers and users can launch tokens, create liquidity pools, and coordinate on-chain markets.
+
+
+
+With tools like Aerodrome Launcher, builders can easily create and bootstrap new tokens while integrating liquidity and market incentives from day one. This makes Aerodrome a strong foundation for projects that need on-chain trading infrastructure, liquidity coordination, and programmable financial flows. 
+
+
+📘Resources
+• Aerodrome Documentation
+
+• Aerodrome GitHub Repositories
+
+• Aerodrome Launcher Overview
+
+
+Prizes
+🏆 Total prize pool: $55,000 
+
+🥇1st place – Best Trustless Trading Agent
+💰 $10,000 in $SURGE Tokens
+
+• Fast-track into the Trading Capital Program
+
+• Surge launch evaluation
+🥈2nd place – Best Risk-Adjusted Return
+💰 $5,000 in $SURGE Tokens
+
+• Trading Capital Program seat
+🥉3rd place – Best Validation & Trust Model
+💰 $2,500 in $SURGE Tokens
+
+• Mentorship session with ERC-8004 contributors
+🏆Special Award – Best Yield / Portfolio Agent
+💰 $2,500 in $SURGE Tokens (lending/LP optimization)
+🏆Special Award – Best Compliance & Risk Guardrails
+💰 $2,500 in $SURGE Tokens (limits, circuit breakers, monitoring)
+Note
+
+
+
+Surge Prize Distribution
+
+• All prizes are distributed in tokens.
+
+• Tokens are vested via Streamflow.
+
+• Token grants exceeding $10,000 are subject to a 12-month linear vesting schedule, with monthly unlocks.
+
+• Token grants below $10,000 are subject to a 6-month linear vesting schedule, with monthly unlocks.
+
+• Tokens are allocated approximately 4 weeks after the event concludes.
+
+• Teams are required to set up and use multi-signature wallets for receiving funds.
+
+• AI agents may also receive token allocations via agent-specific wallets.
+
+🏆 Kraken rewards
+🏆Trading Performance (PnL)
+🥇 1st place - 💰$1,800 
+
+🥈2nd place - 💰 $750
+
+🥉3rd place -  💰 $450
+🏆Social Engagement
+🥇 1st place - 💰$1,200 
+
+🥈2nd place - 💰 $500
+
+🥉3rd place -  💰 $300
+Please note: Participation in lablab.ai hackathons is voluntary. Prizes and opportunities depend on eligibility, availability, and third-party sponsors, for whom lablab.ai is not responsible. Hackathon rules, prizes, and terms may change or be canceled at our discretion. Submissions must be original and MIT-compliant. Prize distribution may take up to 90 days.
+
+Full details: Voluntary Participation & Prize Terms
+Community & Social Channels
+
+Stay connected with the teams behind the hackathon and follow along for updates, highlights, and future opportunities.
+lablab.ai
+X - LinkedIn - Facebook - Instagram  - YouTube - Twitch - Website
+
+NativelyAI
+X - LinkedIn - Website
+
+Surge
+X - LinkedIn - Website
+
+What to submit?
+📋 Basic Information
+
+• Project Title
+
+• Short Description
+
+• Long Description
+
+• Technology & Category Tags
+
+📸 Cover Image and Presentation
+
+• Cover Image
+
+• Video Presentation
+
+• Slide Presentation
+
+💻 App Hosting & Code Repository
+
+• Public GitHub Repository
+
+• Demo Application Platform
+
+• Application URL
+
+For further details and guidance, please visit Submission Guidelines
+
+
+lablab.ai
+Topic: Hackathon Submissions Process
+
+
+▶️ Watch Video
+Judging Criteria
+Application of Technology
+How effectively the chosen model(s) are integrated into the solution.
+Presentation
+The clarity and effectiveness of the project presentation.
+Business Value
+The impact and practical value, considering how well it fits into business areas.
+Originality
+The uniqueness & creativity of the solution, highlighting approaches and ability to demonstrate  behaviors.
+Hackathon Details
+Join lablab.ai hackathon and innovate using the latest models in the market. Discover all the relevant details below.
+
+🗓️ Where and when
+The start date of the hackathon is mentioned according to the date specified on the hackathon page, cover and schedule. The hackathon will take place on the lablab.ai platform and lablab.ai Discord server.
+
+🦸🏼‍♂️ Who can join?
+Everyone is welcome to participate, regardless of previous AI or coding experience! We encourage anyone with a passion for AI or an interest in exploring how it can be used in their field to join.
+
+😅 What about teams?
+If you don't have a team, don't worry! You can connect with other participants from all over the world on our dashboard or Discord server. We also recommend checking out our Discord server to find teammates and bounce around ideas. You can join the server here.
+
+🛠️ How to participate
+The hackathon will take place online on lablab.ai platform and lablab.ai Discord Server. Please register for both in order to participate. To participate click the "Enroll" button at the bottom of the page and read our Hackathon Guidelines and Getting Started Guide.
+
+🧠 Get prepared / Use Lablab.ai to Learn About AI
+To get ready for the hackathon, visit our AI Tech pages and read up on all the available technologies. You can also check out our tutorials page for more information on how to use them. Get a head start on your project by using the resources on lablab.ai!
+
+Speakers, Mentors & Judges
+Pawel Czech
+Pawel Czech
+CEO
+Surge
+
+Gautham Popuri
+Gautham Popuri
+AI Product Manager
+Microsoft
+
+Mallika Rao
+Mallika Rao
+Engineering Lead-Netflix, Walmart, Twitter
+Netflix
+
+Neha Manjunath
+Neha Manjunath
+Senior Research Scientist
+Hippocratic AI
+
+Andrea Marazzi
+Andrea Marazzi
+Founder & CCO
+NativelyAI
+
+Rahul Gupta
+Rahul Gupta
+Head of AI Foundry
+Evergreen
+
+Sanem Avcil
+Sanem Avcil
+AI & Blockchain Advisor
+Kaisvault
+
+Suneeth Maraboina
+Suneeth Maraboina
+Technology Leader
+Apple
+
+Lorenzo Capone
+Lorenzo Capone
+Head of Regional Growth, Southern Europe
+Kraken
+
+Banani Mohapatra	
+Banani Mohapatra
+Senior Manager, Data Science
+Walmart
+
+Japjit Singh
+Japjit Singh
+Applied AI Product Lead
+Google cloud
+
+Vasu Raj Jain
+Vasu Raj Jain
+Senior Software Engineer
+amazon
+
+Bhavnish Walia
+Bhavnish Walia
+Sr. Risk Manager AI/ML
+Amazon
+
+Aanjanaye Kajaria
+Aanjanaye Kajaria
+Founder & CEO
+Fumav
+
+Shaktesh Pandey
+Shaktesh Pandey
+AI Engineer | GenAI Systems | RAG Architect | LLMOps
+Free lancer
+
+Event Schedule
+Mar 30 12:00 PM Eastern Daylight Time
+Hackathon Kick-off
+
+Mar 30 12:05 PM Eastern Daylight Time
+Pawel Czech opening words
+Surge CEO & lablab.ai Founder
+
+Mar 30 12:10 PM Eastern Daylight Time
+Kraken Opening Words
+Lorenzo Capone Head of Regional Growth Southern Europe @Kraken
+
+Mar 30 12:15 PM Eastern Daylight Time
+Introduction to the Challenge
+
+Mar 30 12:35 PM Eastern Daylight Time
+Hackathon Guide
+
+Mar 30 1:00 PM Eastern Daylight Time
+Discord Q&A session
+
+Apr 12 12:00 PM Eastern Daylight Time
+End of Submissions!
+
+
+Teams: AI Trading Agents
+Check out the roster and find teams to join
+
+Ice Cream
+Ice Cream
+
+Ice Cream is a no-code platform that lets anyone build and deploy AI-powered crypto trading agents on the blockchain — no coding required.
+
+Oansa
+Miny Labs
+Miny Labs
+
+Creating the Agentic Economy for the future
+
+Akash Mondal
+OneDev
+OneDev
+
+Solo developer building autonomous AI trading agents that analyze markets, execute trades, and manage risk using ERC-8004 and Kraken CLI.
+
+YUVAN SHANKAR C
+Marshall
+Marshall
+
+Team of ai builder for ai domain.
+
+HarshalPatil
+View all teams
+Footer navigation
+Community innovating and building with artificial intelligence
+Unlocking state-of-the-art artificial intelligence and building with the world's talent
+
+Instagram
+Reddit
+Twitter/X
+GitHub
+Discord
+HackerNoon
+Other group brands:
+
+https://nativelyai.com
+https://surge.lablab.ai/
+Links
+AI Tech
+AI Hackathons
+AI Tutorials
+AI Applications
+Surge
+AI Articles
+Writers
+lablab
+About
+Brand
+Hackathon Guidelines
+Terms of Use
+Code of Conduct
+Privacy Policy
+Get in touch
+Discord
+Sponsor
+Cooperation
+Contribute
+community@lablab.ai
+© 2026 NativelyAI Inc. All rights reserved.
+
+2.10.0
+
+Enrolled
+2495
+
+
+Enroll now!

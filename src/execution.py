@@ -1,0 +1,80 @@
+import os
+from typing import Dict
+from web3 import Web3
+from eth_account import Account
+
+class ExecutionRouter:
+    """Submits EIP-712 signed Trade Intents to the on-chain Risk Router."""
+    
+    def __init__(self):
+        rpc_url = os.getenv("WEB3_RPC_URL")
+        private_key = os.getenv("PRIVATE_KEY")
+        self.router_address = os.getenv("RISK_ROUTER_ADDRESS", "0x000000000000000000000000000000000000dEaD")
+        
+        if not rpc_url or not private_key:
+            raise ValueError("WEB3_RPC_URL or PRIVATE_KEY not found in environment.")
+            
+        self.w3 = Web3(Web3.HTTPProvider(rpc_url))
+        self.account = Account.from_key(private_key)
+        
+        # Mock ABI for executing the intent
+        # The true RiskRouter contract expects a signature and a struct
+        self.abi = [
+            {
+                "inputs": [
+                    {"internalType": "bytes", "name": "signature", "type": "bytes"},
+                    {
+                        "components": [
+                            {"internalType": "string", "name": "action", "type": "string"},
+                            {"internalType": "uint256", "name": "threshold", "type": "uint256"},
+                            {"internalType": "uint256", "name": "timestamp", "type": "uint256"}
+                        ],
+                        "internalType": "struct RiskRouter.Intent",
+                        "name": "intent",
+                        "type": "tuple"
+                    }
+                ],
+                "name": "executeIntent",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            }
+        ]
+        
+        self.contract = self.w3.eth.contract(
+            address=Web3.to_checksum_address(self.router_address),
+            abi=self.abi
+        )
+        
+    def submit_intent(self, signature: str, intent_payload: Dict) -> str:
+        """
+        Submits the intent to the smart contract.
+        Returns the transaction hash.
+        """
+        # Convert hex signature to bytes
+        sig_bytes = Web3.to_bytes(hexstr=signature)
+        
+        intent_tuple = (
+            intent_payload["action"],
+            intent_payload["threshold"],
+            intent_payload["timestamp"]
+        )
+        
+        nonce = self.w3.eth.get_transaction_count(self.account.address)
+        
+        # Build the transaction
+        tx = self.contract.functions.executeIntent(sig_bytes, intent_tuple).build_transaction({
+            'chainId': 84532, # Base Sepolia
+            'gas': 500000,
+            'maxFeePerGas': self.w3.to_wei('2', 'gwei'),
+            'maxPriorityFeePerGas': self.w3.to_wei('1', 'gwei'),
+            'nonce': nonce,
+        })
+        
+        # Sign the transaction
+        signed_tx = self.w3.eth.account.sign_transaction(tx, private_key=self.account.key)
+        
+        # Broadcast
+        tx_hash = self.w3.eth.send_raw_transaction(signed_tx.raw_transaction)
+        
+        return self.w3.to_hex(tx_hash)
