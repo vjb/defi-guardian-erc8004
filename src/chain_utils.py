@@ -43,7 +43,7 @@ class Web3Manager:
             "domain": {
                 "name": "DeFiGuardian",
                 "version": "1",
-                "chainId": 84532, # Base Sepolia
+                "chainId": 11155111, # Ethereum Sepolia Testnet
                 "verifyingContract": self.risk_router
             },
             "message": {

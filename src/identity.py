@@ -58,7 +58,7 @@ class AgentIdentityManager:
         nonce = self.w3.eth.get_transaction_count(self.account_address)
         
         tx = self.contract.functions.registerAgent(token_uri).build_transaction({
-            'chainId': 84532, # Base Sepolia
+            'chainId': 11155111, # Ethereum Sepolia Testnet
             'gas': 500000,
             'maxFeePerGas': self.w3.to_wei('2', 'gwei'),
             'maxPriorityFeePerGas': self.w3.to_wei('1', 'gwei'),

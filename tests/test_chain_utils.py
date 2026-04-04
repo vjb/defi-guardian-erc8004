@@ -72,7 +72,7 @@ def test_eip712_signature(mock_env):
         "domain": {
             "name": "DeFiGuardian",
             "version": "1",
-            "chainId": 84532,
+            "chainId": 11155111,
             "verifyingContract": "0x000000000000000000000000000000000000dEaD"
         },
         "message": {

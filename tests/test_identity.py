@@ -58,7 +58,7 @@ def test_register_agent_tx_build(mocker):
     mock_contract = mocker.MagicMock()
     mock_function = mocker.MagicMock()
     mock_function.build_transaction.return_value = {
-        "chainId": 84532,
+        "chainId": 11155111,
         "nonce": 5,
         "to": "0xRegistryAddress",
         "value": 0,
@@ -72,7 +72,7 @@ def test_register_agent_tx_build(mocker):
     
     tx = manager.build_registration_tx("ipfs://mock_uri")
     
-    assert tx["chainId"] == 84532
+    assert tx["chainId"] == 11155111
     assert tx["nonce"] == 5
     manager.contract.functions.registerAgent.assert_called_with("ipfs://mock_uri")
     mock_function.build_transaction.assert_called_once()
