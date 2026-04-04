@@ -76,5 +76,16 @@ class ExecutionRouter:
         
         # Broadcast
         tx_hash = self.w3.eth.send_raw_transaction(signed_tx.raw_transaction)
+        tx_hex = self.w3.to_hex(tx_hash)
         
-        return self.w3.to_hex(tx_hash)
+        # Wait for on-chain block mining to determine absolute success/revert status
+        try:
+            receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash, timeout=120)
+            status = receipt.status
+        except Exception:
+            status = 2 # 2 implies timeout/unknown
+            
+        return {
+            "tx_hash": tx_hex,
+            "status": status
+        }
