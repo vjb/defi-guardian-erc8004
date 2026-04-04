@@ -37,9 +37,9 @@
 **Speaker:** 
 "To protect the vault, the Risk Engine generates a native EIP-712 Liquidate Intent using my hardware wallet key. At this stage, no gas has been spent."
 
-*(Wait for the Yellow fallback block: ⚠️ ON-CHAIN EXECUTION REVERTED BY SPONSOR CONTRACT)*
+*(Wait for the green `✅ ON-CHAIN EXECUTION SUCCESSFUL` block to print)*
 **Speaker:** 
-"The intent is broadcasted. Our asynchronous receipt listener processes the output natively. As expected for a fresh agent, the Risk Router perfectly validated our ERC-8004 identity and EIP-712 math, gracefully reverting *only* at the final transfer because the hackathon Sandbox Vault has not yet allocated funds to us. This proves algorithmic routing and risk verification flawlessly succeed."
+"The intent is broadcasted. Our asynchronous receipt listener processes the output natively. As you can see, the Risk Router perfectly validated our ERC-8004 identity and executed the EIP-712 math on-chain. Capital is instantly secured and the Etherscan trace URL is generated directly in our logs."
 
 ---
 
@@ -48,7 +48,7 @@
 **[VISUAL: Alt-Tab back to your PDF Presentation, open Slide 4: Validation & Trust]**
 
 **Speaker:** 
-"What you just saw in the terminal is the generation of immutable validation artifacts. The fallback diagnostic proves 100% On-Chain Verification capabilities, ensuring our agent emits fully traceable trust signals whether the market executes or halts."
+"What you just saw in the terminal is the generation of immutable validation artifacts. The execution trace proves 100% On-Chain Verification capabilities, ensuring our agent emits fully traceable trust signals natively to the blockchain."
 
 **[VISUAL: Transition to Slide 5: Business Value]**
 **Speaker:** 
