@@ -60,6 +60,12 @@ python guardian_terminal.py
 
 ---
 
+## Documentation & Verification
+- **Architecture Reference & Verification Map:** [`docs/surge_hackathon_rubric.md`](docs/surge_hackathon_rubric.md)
+- **View Raw Execution Log Trace:** [`docs/execution_log.txt`](docs/execution_log.txt)
+
+---
+
 ## Testing Validations
 Verified 100% against native Ethereum capabilities (Zero mocking):
 ```bash
