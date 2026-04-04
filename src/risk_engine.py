@@ -23,7 +23,7 @@ class RiskEngine:
         if not self.prism_api_key:
             raise ValueError("PRISM_API_KEY is not configured in the environment.")
             
-        url = f"https://api.prismapi.ai/crypto/{symbol}/price"
+        url = f"https://api.prismapi.ai/crypto/price/{symbol}"
         headers = {
             "X-API-Key": self.prism_api_key
         }

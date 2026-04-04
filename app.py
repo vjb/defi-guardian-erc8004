@@ -192,8 +192,8 @@ with col_right:
         st.markdown(f"**EIP-712 Signature Generated:**")
         st.code(st.session_state.signature, language="text")
         
-        st.markdown(f"**Transaction Broadcast (Base Sepolia):**")
-        st.markdown(f"<a href='https://sepolia-explorer.base.org/tx/{st.session_state.tx_hash}' target='_blank' style='color:#004b87; font-weight:bold;'>{st.session_state.tx_hash}</a>", unsafe_allow_html=True)
+        st.markdown(f"**Transaction Broadcast (Ethereum Sepolia):**")
+        st.markdown(f"<a href='https://sepolia.etherscan.io/tx/{st.session_state.tx_hash}' target='_blank' style='color:#004b87; font-weight:bold;'>{st.session_state.tx_hash}</a>", unsafe_allow_html=True)
     else:
         st.info("System Nominal. Standing by.")
         

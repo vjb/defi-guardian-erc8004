@@ -1,6 +1,11 @@
 # DeFi Guardian: Trustless ERC-8004 Risk Agent
 
-DeFi Guardian is an institutional-grade, trustless DeFi trading agent designed for the Surge "AI Trading Agents" Hackathon. It rigorously enforces human-defined risk boundaries automatically. By tracking high water marks and live pricing via the Strykr PRISM API, it executes non-custodial EIP-712 circuit breakers on Base Sepolia when drawdowns exceed threshold limits.
+DeFi Guardian is an institutional-grade, trustless DeFi trading agent designed for the Surge "AI Trading Agents" Hackathon. It rigorously enforces human-defined risk boundaries automatically. By tracking high water marks and live pricing via the Strykr PRISM API, it executes non-custodial EIP-712 circuit breakers on the Ethereum Sepolia Testnet when drawdowns exceed threshold limits.
+
+## Official Contracts (Ethereum Sepolia Testnet - ChainID 11155111)
+The agent operates via the judge's standard infrastructure and perfectly maps to the following core contracts:
+- **Risk Router Address:** `0xd6A6952545FF6E6E6681c2d15C59f9EB8F40FdBC`
+- **ERC-8004 Registry Address:** `0x97b07dDc405B0c28B17559aFFE63BdB3632d0ca3`
 
 ## Hosted App & Demo
 - **Live Institutional Dashboard:** [Streamlit Cloud Placeholder API]
@@ -9,7 +14,7 @@ DeFi Guardian is an institutional-grade, trustless DeFi trading agent designed f
 ## Hackathon Judging Criteria Matrix
 
 ### 1. Application of Technology
-We natively implement the **ERC-8004 Agent Registration** standard, enforcing precise capabilities (`RISK_MANAGEMENT`, `LIQUIDATION`, `CIRCUIT_BREAKER`). Our robust Pydantic-powered schemas guarantee verifiable on-chain metadata. By bridging Web2 real-time data (Strykr PRISM) with Web3 Trustless Execution (EIP-712 Signatures on Base Sepolia), we build an end-to-end decentralized fail-safe.
+We natively implement the **ERC-8004 Agent Registration** standard, enforcing precise capabilities (`RISK_MANAGEMENT`, `LIQUIDATION`, `CIRCUIT_BREAKER`). Our robust Pydantic-powered schemas guarantee verifiable on-chain metadata. By bridging Web2 real-time data (Strykr PRISM) with Web3 Trustless Execution (EIP-712 Signatures on Ethereum Sepolia), we build an end-to-end decentralized fail-safe.
 
 ### 2. Presentation
 Our Streamlit dashboard utilizes "Bloomberg Terminal/Vanguard-style" CSS design language to demonstrate the agent's actions in real-time. Judges can use a manual "Force Circuit Breaker Test" button to witness the EIP-712 cryptographic signature generation step-by-step.
