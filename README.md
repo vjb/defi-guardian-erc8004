@@ -18,24 +18,21 @@ No Twitter spam. No unpredictable PnL battles. Just pure, institutional-grade ma
 >
 > 🛑 **JUDGES: Do not want to run the code locally?** You can read the exact unedited raw terminal trace of the execution—verifying the ERC-8004 Schema, PRISM AI fetch, and Cryptographic EIP-712 payload generation right here: [`docs/execution_log.txt`](docs/execution_log.txt)
 
----
+## Core Capabilities
 
-## Pitch & Presentation
-Our codebase is designed to run flawlessly during demonstrations by utilizing an incredibly clean Python `Rich` terminal UI. 
+1. **Trustless Ecosystem Verification**  
+   The Guardian mathematically locks its payload to the exact "registration-v1" specification. This proves to the smart contracts that it is a verifiably registered agent permitted for autonomous operation over `eip155:11155111`.
 
-Please refer to [`docs/video_presentation_script.md`](docs/video_presentation_script.md) for the exact script, pacing, and visual prompts needed to record the perfect 2-minute hackathon pitch.
+2. **Institutional Signal Polling**  
+   Rather than making simple moving average guesses, the Guardian natively integrates the **Strykr PRISM AI Signals API** (`/signals/{symbol}`). This fetches deep, multi-source consensus metrics directly from the sponsors' institutional data feeds.
 
----
-
-## Core Features
-1. **Strict ERC-8004 Registration Schemas:** Uses Pydantic V2 to mathematically lock the agent payload precisely to the `"registration-v1"` specification over `eip155:11155111`.
-2. **True Native AI Signals:** Natively polls the Strykr PRISM sponsor endpoint (`/signals/{symbol}`) to extract verified institutional market consensus matrices.
-3. **Trustless Intent Execution:** Upon receiving a `bearish` signal, the agent skips centralized exchanges. It dynamically encodes EIP-155 safe EIP-712 domains and signs a cryptographically verifiable payload locally, ready for broadcast to the Surge Risk Router.
+3. **Non-Custodial Circuit Breakers**  
+   When a structural asset failure is identified (e.g., Extreme Bearish Divergence), the agent skips vulnerable centralized exchanges. It generates an EIP-155 safe, cross-chain resistant cryptographic payload (EIP-712). This intent is broadcast securely and executed natively by the Surge Risk Router's smart contracts.
 
 ### Optional Enhancements Achieved
-We specifically targeted the Surge Hackathon "Optional Enhancements" multipliers:
-- **Portfolio risk modules enforced on-chain:** Our entire architecture is structured around this premise. The agent acts solely as a risk oracle; the actual circuit breakers and liquidations are enforced strictly by the on-chain Risk Router validating our EIP-712 metrics.
-- **TEE-backed attestations:** The `AgentMetadata` registration explicitly includes `"tee-attestation"` in its verified `supportedTrust` payload, proving architectural readiness for secure enclave validation.
+We specifically engineered the Guardian to fulfill the hackathon's advanced technical directives:
+- **Portfolio risk modules enforced on-chain:** Our entire architecture abandons weak web2 market-sells, enforcing circuit breakers fundamentally via on-chain contract verifications.
+- **TEE-backed attestations:** The registration explicitly structures for `"tee-attestation"` within its `supportedTrust` arrays, cementing readiness for secure enclave validation.
 
 ---
 
