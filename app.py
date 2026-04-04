@@ -1,9 +1,12 @@
 import time
 import os
 import streamlit as st
+from dotenv import load_dotenv
 from src.risk_engine import RiskEngine, Action
 from src.chain_utils import Web3Manager
 from src.execution import ExecutionRouter
+
+load_dotenv()
 
 st.set_page_config(page_title="Institutional Risk Management Dashboard", layout="wide")
 
