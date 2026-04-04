@@ -15,15 +15,15 @@ class RiskEngine:
         self.prism_api_key = os.getenv("PRISM_API_KEY")
         self.high_water_marks: Dict[str, float] = {}
 
-    def fetch_prism_oracle_data(self, symbol: str) -> float:
+    def fetch_prism_oracle_data(self, symbol: str) -> dict:
         """
-        Queries the Strykr PRISM API for live token pricing.
+        Queries the Strykr PRISM API for live AI Signals.
         Requires the PRISM_API_KEY to be set in the environment.
         """
         if not self.prism_api_key:
             raise ValueError("PRISM_API_KEY is not configured in the environment.")
             
-        url = f"https://api.prismapi.ai/crypto/price/{symbol}"
+        url = f"https://api.prismapi.ai/signals/{symbol}"
         headers = {
             "X-API-Key": self.prism_api_key
         }
@@ -32,29 +32,29 @@ class RiskEngine:
             response = requests.get(url, headers=headers)
             response.raise_for_status()
             data = response.json()
-            return float(data.get("price_usd", 0.0))
+            
+            # PRISM Signals schema returns {"object": "list", "data": [...]}
+            signals = data.get("data", [])
+            if not signals:
+                return {"signal": "unknown", "price": 0.0}
+                
+            first_signal = signals[0]
+            return {
+                "signal": first_signal.get("overall_signal", "neutral").lower(),
+                "strength": first_signal.get("strength", "none"),
+                "price": float(first_signal.get("current_price", 0.0))
+            }
         except requests.exceptions.RequestException as e:
             raise RuntimeError(f"PRISM Oracle evaluation failed: {e}")
 
-    def evaluate(self, symbol: str, current_price: Optional[float] = None) -> Action:
+    def evaluate(self, symbol: str, mock_data: Optional[dict] = None) -> (Action, dict):
         """
-        Evaluates the symbol using live PRISM data or a mock price. Updates the High Water Mark and calculates drawdown.
+        Evaluates the symbol using live PRISM AI signals. 
+        Returns an Action (HOLD or TRIGGER_CIRCUIT_BREAKER) and the signal context.
         """
-        if current_price is None:
-            current_price = self.fetch_prism_oracle_data(symbol)
+        signal_data = mock_data if mock_data else self.fetch_prism_oracle_data(symbol)
         
-        if current_price <= 0:
-            return Action.HOLD
+        if signal_data["signal"] == "bearish" or signal_data["signal"] == "strong_bearish":
+            return Action.TRIGGER_CIRCUIT_BREAKER, signal_data
             
-        highest_price = self.high_water_marks.get(symbol, 0.0)
-        
-        if current_price > highest_price:
-            self.high_water_marks[symbol] = current_price
-            return Action.HOLD
-            
-        drop_percentage = (highest_price - current_price) / highest_price
-        
-        if drop_percentage > self.threshold_percentage:
-            return Action.TRIGGER_CIRCUIT_BREAKER
-            
-        return Action.HOLD
+        return Action.HOLD, signal_data
