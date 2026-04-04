@@ -12,8 +12,6 @@ Current generative trading bots act as volatile black-boxes trying to predict al
 
 **DeFi Guardian** entirely bypasses centralized risk management strategies by acting as an autonomous terminal agent deeply integrated with the official **ERC-8004 Trustless Agents Specification**. Powered by the Strykr PRISM AI Signals API, the Guardian actively monitors live market thresholds and cryptographically executes non-custodial `EIP-712` circuit breakers to the Ethereum Sepolia Risk Router the exact moment structural failure is detected.
 
-No Twitter spam. No unpredictable PnL battles. Just pure, institutional-grade mathematical defense mechanisms.
-
 > **View our Complete Hackathon Judging Rubric & Verification Map:** [`docs/surge_hackathon_rubric.md`](docs/surge_hackathon_rubric.md)
 >
 > 🛑 **JUDGES: Do not want to run the code locally?** You can read the exact unedited raw terminal trace of the execution—verifying the ERC-8004 Schema, PRISM AI fetch, and Cryptographic EIP-712 payload generation right here: [`docs/execution_log.txt`](docs/execution_log.txt)
