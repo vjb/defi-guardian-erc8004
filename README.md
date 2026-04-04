@@ -10,9 +10,7 @@
 ## Project Overview
 Current generative trading bots act as volatile black-boxes trying to predict alpha. But institutions don't just need alpha; they need **mathematical guarantees against catastrophic loss.**
 
-> **Architecture Reference & Verification Map:** [`docs/surge_hackathon_rubric.md`](docs/surge_hackathon_rubric.md)
-> 
-> **View Raw Execution Log Trace:** [`docs/execution_log.txt`](docs/execution_log.txt)
+**DeFi Guardian** solves this by acting as an autonomous terminal agent deeply integrated with the official **ERC-8004 Trustless Agents Specification**. Powered by the Strykr PRISM AI Signals API, the Guardian actively monitors live market thresholds. The exact moment an institutional downside consensus is reached, it skips centralized exchanges and cryptographically executes non-custodial `EIP-712` circuit breakers directly to the Ethereum Sepolia Risk Router.
 
 ## The Trustless Execution Loop
 
