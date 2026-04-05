@@ -55,6 +55,13 @@ We specifically engineered the Guardian to fulfill advanced institutional securi
 - **Portfolio risk modules enforced on-chain:** Our entire architecture abandons weak web2 market-sells, enforcing circuit breakers fundamentally via on-chain contract verifications.
 - **TEE-backed attestations:** The registration explicitly structures for `"tee-attestation"` within its `supportedTrust` arrays, cementing readiness for secure enclave validation.
 
+### Technology Stack & Standards
+- **ERC-8004 Registries:** Natively formats agent registration artifacts to match the ERC-8004 Draft Standard (`registration-v1`).
+- **EIP-712 & EIP-1271 Support:** Dynamically builds and cryptographically signs EIP-712 TypeData payloads outlining `CIRCUIT_BREAKER` and `LIQUIDATION` intents. Enforces EIP-155 by locking the signature domain to `11155111` (Ethereum Sepolia). Smart-contract wallet compatibility (EIP-1271) is natively supported.
+- **Pydantic (V2):** Used natively for JSON schema generation and strictly enforcing ERC-8004 schema types.
+- **eth-account & Web3.py:** Used for deterministic, industry-standard EIP-712 signature generation completely offline.
+- **Python Rich CLI:** Powers the developer-native Terminal Interface to guarantee execution reliability and flawless presentation logic.
+
 ---
 
 ## Getting Started
@@ -86,7 +93,6 @@ python guardian_terminal.py
 ---
 
 ## Documentation & Verification
-- **Architecture Reference:** [`docs/surge_hackathon_rubric.md`](docs/surge_hackathon_rubric.md)
 - **Terminal Execution Trace:** [`docs/execution_log.txt`](docs/execution_log.txt)
 - **Live On-Chain Verification:** [Etherscan Sepolia Transaction Hash](https://sepolia.etherscan.io/tx/0x1112fa9a615aaeb80b1a30ed307fb3f825356b74701008753ebd9d754264bb58)
 

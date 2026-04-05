@@ -1,6 +1,0 @@
-[2026-04-04 17:30:57,271] [INFO] [WEB3-DIAGNOSTIC] Initializing DeFi Guardian Network Diagnostics...
-[2026-04-04 17:30:57,271] [INFO] [WEB3-DIAGNOSTIC] Targeting Node: https://rpc.sepolia.org
-[2026-04-04 17:30:57,272] [DEBUG] [WEB3-DIAGNOSTIC] Making request HTTP. URI: https://rpc.sepolia.org, Method: web3_clientVersion
-[2026-04-04 17:30:57,272] [DEBUG] [WEB3-DIAGNOSTIC] Session cached: https://rpc.sepolia.org, <requests.sessions.Session object at 0x0000025AE89630E0>
-[2026-04-04 17:30:57,273] [DEBUG] [WEB3-DIAGNOSTIC] Starting new HTTPS connection (1): rpc.sepolia.org:443
-[2026-04-04 17:31:07,343] [ERROR] [WEB3-DIAGNOSTIC] RPC Connection Failed. Could not ping Sepolia Node.
