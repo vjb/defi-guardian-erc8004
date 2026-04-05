@@ -38,6 +38,15 @@ sequenceDiagram
     Router-->>Agent: Verification Success. Portfolio Secured.
 ```
 
+## System Architecture & Components
+
+| Component | Backing Script | Primary Responsibility |
+| :--- | :--- | :--- |
+| **Terminal Core UI** | [`guardian_terminal.py`](guardian_terminal.py) | Orchestrates the God-Mode CLI execution, rendering rich logs, and injecting demo transparency. |
+| **ERC-8004 Metadata** | [`src/identity.py`](src/identity.py) | Natively formats agent registration and builds the transaction against the Sepolia Registry. |
+| **Institutional Oracle** | [`src/risk_engine.py`](src/risk_engine.py) | Ingests and evaluates PRISM AI market consensus data to trigger circuit breakers. |
+| **EIP-712 Engine** | [`src/execution.py`](src/execution.py) | Dynamically structures and cryptographically signs EIP-155 safe non-custodial intents for the Risk Router. |
+
 ## Core Capabilities
 
 1. **Trustless Ecosystem Verification**  

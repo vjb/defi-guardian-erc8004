@@ -1,0 +1,7 @@
+[theme]
+# Institutional-Grade Light Mode High-Density Aesthetic
+primaryColor = "#000000"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F8F9FA"
+textColor = "#111827"
+font = "sans serif"

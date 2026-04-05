@@ -61,6 +61,7 @@ def main():
         
     demo_signal = signal_data.copy()
     if demo_signal["signal"] != "bearish" and demo_signal["signal"] != "strong_bearish":
+        console.print(f"[[yellow]{get_timestamp()}[/yellow]] [bold yellow]\\[MOCKED: PRISM Oracle][/bold yellow] Overriding live neutral/bullish trajectory to 'strong_bearish' for structural failure demonstration.")
         demo_signal["signal"] = "strong_bearish"
         demo_signal["strength"] = "extreme"
         
