@@ -31,8 +31,7 @@ sequenceDiagram
     
     Note over Agent: Structural Market Failure Detected!
     
-    Agent->>Agent: Bypass Custodial CEX Executions
-    Agent->>Agent: Construct EIP-155 Safe Payload
+    Agent->>Agent: Construct EIP-155 Safe Intent Payload
     Agent->>Agent: Sign EIP-712 Intent Cryptographically
     
     Agent->>Router: Broadcast Non-Custodial Circuit Breaker
