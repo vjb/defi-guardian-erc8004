@@ -65,7 +65,7 @@ We specifically engineered the Guardian to fulfill advanced institutional securi
 
 ### Technology Stack & Standards
 - **ERC-8004 Registries:** Natively formats agent registration artifacts to match the ERC-8004 Draft Standard (`registration-v1`).
-- **EIP-712 & EIP-1271 Support:** Dynamically builds and cryptographically signs EIP-712 TypeData payloads outlining `CIRCUIT_BREAKER` and `LIQUIDATION` intents. Enforces EIP-155 by locking the signature domain to `11155111` (Ethereum Sepolia). Smart-contract wallet compatibility (EIP-1271) is natively supported.
+- **EIP-712 & EIP-1271 Support:** Dynamically builds and cryptographically signs EIP-712 TypeData payloads outlining `submitTradeIntent` intents with all 8 institutional specification variables (agentId, pair, slippage, etc). Enforces EIP-155 by locking the signature domain to `11155111` (Ethereum Sepolia). Smart-contract wallet compatibility (EIP-1271) is natively supported.
 - **Pydantic (V2):** Used natively for JSON schema generation and strictly enforcing ERC-8004 schema types.
 - **eth-account & Web3.py:** Used for deterministic, industry-standard EIP-712 signature generation completely offline.
 - **Python Rich CLI:** Powers the developer-native Terminal Interface to guarantee execution reliability and flawless presentation logic.
@@ -102,7 +102,7 @@ python guardian_terminal.py
 
 ## Documentation & Verification
 - **Terminal Execution Trace:** [`docs/execution_log.txt`](docs/execution_log.txt)
-- **Live On-Chain Verification:** [Etherscan Sepolia Transaction Hash](https://sepolia.etherscan.io/tx/0x1112fa9a615aaeb80b1a30ed307fb3f825356b74701008753ebd9d754264bb58)
+- **Live On-Chain Verification:** [Etherscan Sepolia Transaction Hash](https://sepolia.etherscan.io/tx/0xf3cce690820897ca2c2c2119a3e3e686c1d925923fc8853ef6cfac53e263f646)
 
 ---
 

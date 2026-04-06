@@ -18,25 +18,36 @@ class ExecutionRouter:
         self.account = Account.from_key(private_key)
         
         # Standard ABI for executing the intent
-        # The true RiskRouter contract expects a signature and a struct
         self.abi = [
             {
                 "inputs": [
-                    {"internalType": "bytes", "name": "signature", "type": "bytes"},
                     {
                         "components": [
+                            {"internalType": "uint256", "name": "agentId", "type": "uint256"},
+                            {"internalType": "address", "name": "agentWallet", "type": "address"},
+                            {"internalType": "string", "name": "pair", "type": "string"},
                             {"internalType": "string", "name": "action", "type": "string"},
-                            {"internalType": "uint256", "name": "threshold", "type": "uint256"},
-                            {"internalType": "uint256", "name": "timestamp", "type": "uint256"}
+                            {"internalType": "uint256", "name": "amountUsdScaled", "type": "uint256"},
+                            {"internalType": "uint256", "name": "maxSlippageBps", "type": "uint256"},
+                            {"internalType": "uint256", "name": "nonce", "type": "uint256"},
+                            {"internalType": "uint256", "name": "deadline", "type": "uint256"}
                         ],
-                        "internalType": "struct RiskRouter.Intent",
+                        "internalType": "struct RiskRouter.TradeIntent",
                         "name": "intent",
                         "type": "tuple"
-                    }
+                    },
+                    {"internalType": "bytes", "name": "signature", "type": "bytes"}
                 ],
-                "name": "executeIntent",
+                "name": "submitTradeIntent",
                 "outputs": [],
                 "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [{"internalType": "uint256", "name": "agentId", "type": "uint256"}],
+                "name": "getIntentNonce",
+                "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+                "stateMutability": "view",
                 "type": "function"
             }
         ]
@@ -46,6 +57,9 @@ class ExecutionRouter:
             abi=self.abi
         )
         
+    def get_intent_nonce(self, agent_id: int) -> int:
+        return self.contract.functions.getIntentNonce(agent_id).call()
+
     def submit_intent(self, signature: str, intent_payload: Dict) -> str:
         """
         Submits the intent to the smart contract.
@@ -55,15 +69,20 @@ class ExecutionRouter:
         sig_bytes = Web3.to_bytes(hexstr=signature)
         
         intent_tuple = (
+            intent_payload["agentId"],
+            intent_payload["agentWallet"],
+            intent_payload["pair"],
             intent_payload["action"],
-            intent_payload["threshold"],
-            intent_payload["timestamp"]
+            intent_payload["amountUsdScaled"],
+            intent_payload["maxSlippageBps"],
+            intent_payload["nonce"],
+            intent_payload["deadline"]
         )
         
         nonce = self.w3.eth.get_transaction_count(self.account.address)
         
         # Build the transaction
-        tx = self.contract.functions.executeIntent(sig_bytes, intent_tuple).build_transaction({
+        tx = self.contract.functions.submitTradeIntent(intent_tuple, sig_bytes).build_transaction({
             'chainId': 11155111, # Ethereum Sepolia Testnet
             'gas': 500000,
             'maxFeePerGas': self.w3.to_wei('2', 'gwei'),

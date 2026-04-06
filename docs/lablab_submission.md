@@ -29,10 +29,10 @@ Use this document to copy-paste exactly what you need into the Lablab.ai hackath
 ## 2. Platform & Repository Links
 
 **Public GitHub Repository:** 
-> *(Insert your specific Github URL here)*
+> https://github.com/vjb/defi-guardian-erc8004
 
-**Demo Application URL:** 
-> *(Since this is a terminal-based CLI application, link your GitHub Repo here as well, or link to a deployed read-only log page if you have one. Lablab allows linking to GitHub for CLI apps).*
+**Demo Application URL (Live Etherscan & Terminal Execution Trace):** 
+> https://github.com/vjb/defi-guardian-erc8004/blob/main/docs/execution_log.txt
 
 ---
 

@@ -1,40 +1,27 @@
-┌────────────────────────────────────────────────────────────────┐
-│       DEF-GUARDIAN // INSTITUTIONAL DEFENSE GRID ONLINE        │
-└────────────────────────────────────────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────╮
+│                  DEF-GUARDIAN // INSTITUTIONAL DEFENSE GRID ONLINE                   │
+╰──────────────────────────────────────────────────────────────────────────────────────╯
 
-[18:02:20.871] SYSTEM THREAD INIT: Booting Autonomous Risk Sentry.
-[18:02:21.675] ERC-8004 LAYER VERIFIED: Identity hash mechanically
-locked to Sepolia Trust Registry.
-[18:02:21.676] Monitoring $10M Institutional Capital Vault...
+[16:54:18.699] SYSTEM THREAD INIT: Booting Autonomous Risk Sentry.
+[16:54:19.502] ERC-8004 LAYER VERIFIED: Identity hash mechanically locked to Sepolia Trust Registry.
+[16:54:19.507] Monitoring $10M Institutional Capital Vault...
 
-[18:02:22.877] 📡 Querying PRISM Institutional AI Market Oracle 
-for latest BTC consensus...
-[18:02:25.051] 🚨 PRISM ALERT: MASSIVE STRONG_BEARISH DIVERGENCE 
-DETECTED (Strength: EXTREME).
-[18:02:25.553] ⚠️ PORTFOLIO LIMIT BREACH: Imminent structural 
-asset failure modeling triggered at $84,022.42.
+[16:54:20.709] 📡 Querying PRISM Institutional AI Market Oracle for latest BTC consensus...
+[16:54:22.943] [MOCKED: PRISM Oracle] Overriding live neutral/bullish trajectory to 'strong_bearish' for structural failure demonstration.
+[16:54:22.944] 🚨 PRISM ALERT: MASSIVE STRONG_BEARISH DIVERGENCE DETECTED (Strength: EXTREME).
+[16:54:23.446] ⚠️ PORTFOLIO LIMIT BREACH: Imminent structural asset failure modeling triggered at $69,897.41.
 
-[18:02:26.555] ⚡ BYPASSING CENTRALIZED EXCHANGES... Initiating 
-On-Chain Contractual Circuit Breaker...
-[18:02:28.098] 🔐 EIP-712 TRUSTLESS INTENT SIGNED: Generating 
-cryptographically verifiable Non-Custodial Liquidate Payload.
-┌────────── ✅ INTENT SECURED AND BOUND FOR BLOCKCHAIN ──────────┐
-│ Network Verification: Ethereum Sepolia (11155111)              │
-│ Risk Router Relay: 0xd6A6952545FF6E6E6681c2d15C59f9EB8F40FdBC  │
-│                                                                │
-│ Signed Trustless Hash Trace:                                   │
-│ 0x259892c2c5557d72bcdf6d57dde0c07ed9a84b2692107cb2db0927a6197e │
-│ afd72aa6a837bdf9ab9fef5fc7840a0798872c29855d5c78904db7fe94d7ca │
-│ f2cae51c                                                       │
-└────────────────────────────────────────────────────────────────┘
-[18:02:28.102] 🌐 Establishing secure RPC connection to Sepolia 
-Network...
-[18:02:36.379] ⚠️ ON-CHAIN EXECUTION REVERTED BY SPONSOR CONTRACT
-[18:02:36.381] Diagnostic: The EIP-712 Intent flawlessly reached 
-the RiskRouter, but the Hackathon Vault contract currently holds 0
-ETH and reverted the final capital transfer.
-[18:02:36.384] System Status: ALGORITHMIC ARCHITECTURE 100% 
-VERIFIED. Waiting for Surge Sponsors to fund testnet vault.
-[Live Revert Trace: 
-https://sepolia.etherscan.io/tx/0xad20508f1f04863ba406095e9a8501d2
-d34fae3e8640ef6bfdb98b16ade564bd]
+[16:54:24.449] ⚡ BYPASSING CENTRALIZED EXCHANGES... Initiating On-Chain Contractual Circuit Breaker...
+[16:54:26.294] 🔐 EIP-712 TRUSTLESS INTENT SIGNED: Generating cryptographically verifiable Non-Custodial Liquidate Payload.
+╭────────────────────── ✅ INTENT SECURED AND BOUND FOR BLOCKCHAIN ──────────────────────╮
+│ Network Verification: Ethereum Sepolia (11155111)                                    │
+│ Risk Router Relay: 0xd6A6952545FF6E6E6681c2d15C59f9EB8F40FdBC                        │
+│                                                                                      │
+│ Signed Trustless Hash Trace:                                                         │
+│ 0x635b2e716e95ff010f221658d7086f6da5c0fc620ca7319008a3d1b5a69784ec20b391bdaaf1fc15b7 │
+│ 267743ec0b7d9a3027c8a9d31d950d7b53a3aad21cc7c81b                                     │
+╰──────────────────────────────────────────────────────────────────────────────────────╯
+[16:54:26.298] 🌐 Establishing secure RPC connection to Sepolia Network...
+[16:54:36.222] ✅ ON-CHAIN EXECUTION SUCCESSFUL
+[16:54:36.223] 🚀 Capital Successfully Protected from Market Drawdown.
+Live Etherscan Trace: https://sepolia.etherscan.io/tx/0xf3cce690820897ca2c2c2119a3e3e686c1d925923fc8853ef6cfac53e263f646

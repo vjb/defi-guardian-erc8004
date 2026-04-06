@@ -80,11 +80,23 @@ def main():
         time.sleep(1.5)
         
         signer = Web3Manager()
-        signature_hex = signer.sign_trade_intent(
-            action="LIQUIDATE",
-            threshold=int(evaluated['price']),
-            timestamp=int(time.time())
-        )
+        router = ExecutionRouter()
+        
+        agent_id = 7
+        nonce = router.get_intent_nonce(agent_id)
+        
+        intent_payload = {
+            "agentId": agent_id,
+            "agentWallet": signer.account.address,
+            "pair": "BTCUSD",
+            "action": "LIQUIDATE",
+            "amountUsdScaled": 50000,
+            "maxSlippageBps": 100,
+            "nonce": nonce,
+            "deadline": int(time.time()) + 300
+        }
+        
+        signature_hex = signer.sign_trade_intent(intent_payload)
         
         console.print(f"[[green]{get_timestamp()}[/green]] [bold green]🔐 EIP-712 TRUSTLESS INTENT SIGNED:[/bold green] Generating cryptographically verifiable Non-Custodial Liquidate Payload.")
         
@@ -100,25 +112,19 @@ def main():
         console.print(f"[[yellow]{get_timestamp()}[/yellow]] 🌐 Establishing secure RPC connection to Sepolia Network...")
         
         try:
-            router = ExecutionRouter()
-            result = router.submit_intent(
-                signature_hex, 
-                {"action": "LIQUIDATE", "threshold": int(evaluated['price']), "timestamp": int(time.time())}
-            )
-            
+            result = router.submit_intent(signature_hex, intent_payload)
             tx_hash = result["tx_hash"]
             if result["status"] == 1:
                 console.print(f"[[green]{get_timestamp()}[/green]] [bold green]✅ ON-CHAIN EXECUTION SUCCESSFUL[/bold green]")
                 console.print(f"[[green]{get_timestamp()}[/green]] [bold]🚀 Capital Successfully Protected from Market Drawdown.[/bold]")
-                console.print(f"[[cyan]Live Etherscan Trace:[/cyan] https://sepolia.etherscan.io/tx/{tx_hash}]")
+                console.print(f"[cyan]Live Etherscan Trace: https://sepolia.etherscan.io/tx/{tx_hash}[/cyan]")
             elif result["status"] == 0:
-                console.print(f"[[yellow]{get_timestamp()}[/yellow]] [bold yellow]⚠️ ON-CHAIN EXECUTION REVERTED BY SPONSOR CONTRACT[/bold yellow]")
-                console.print(f"[[yellow]{get_timestamp()}[/yellow]] [italic]Diagnostic: The EIP-712 Intent flawlessly reached the RiskRouter, but the Hackathon Vault contract currently holds 0 ETH and reverted the final capital transfer.[/italic]")
-                console.print(f"[[yellow]{get_timestamp()}[/yellow]] [bold]System Status:[/bold] ALGORITHMIC ARCHITECTURE 100% VERIFIED. Waiting for Surge Sponsors to fund testnet vault.")
-                console.print(f"[[cyan]Live Revert Trace:[/cyan] https://sepolia.etherscan.io/tx/{tx_hash}]")
+                console.print(f"[[red]{get_timestamp()}[/red]] [bold red]⚠️ ON-CHAIN EXECUTION REVERTED[/bold red]")
+                console.print(f"[[red]{get_timestamp()}[/red]] [italic]Diagnostic: The Smart Contract reverted the transaction.[/italic]")
+                console.print(f"[cyan]Live Revert Trace: https://sepolia.etherscan.io/tx/{tx_hash}[/cyan]")
             else:
                 console.print(f"[[yellow]{get_timestamp()}[/yellow]] [bold green]✅ INTENT BROADCASTED[/bold green] (Awaiting final block confirmation)")
-                console.print(f"[[cyan]Pending Trace:[/cyan] https://sepolia.etherscan.io/tx/{tx_hash}]")
+                console.print(f"[cyan]Pending Trace: https://sepolia.etherscan.io/tx/{tx_hash}[/cyan]")
                 
         except Exception as e:
             console.print(f"[[red]{get_timestamp()}[/red]] [bold red]❌ BROADCAST FAILED:[/bold red] {e}")

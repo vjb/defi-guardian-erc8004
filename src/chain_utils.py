@@ -18,13 +18,10 @@ class Web3Manager:
         self.w3 = Web3(Web3.HTTPProvider(rpc_url))
         self.account = Account.from_key(private_key)
 
-    def sign_trade_intent(self, action: str, threshold: int, timestamp: int = None) -> str:
+    def sign_trade_intent(self, intent: dict) -> str:
         """
         Generates an EIP-712 structured signature for a TradeIntent.
         """
-        if timestamp is None:
-            timestamp = int(time.time())
-
         typed_data = {
             "types": {
                 "EIP712Domain": [
@@ -34,23 +31,24 @@ class Web3Manager:
                     {"name": "verifyingContract", "type": "address"}
                 ],
                 "TradeIntent": [
+                    {"name": "agentId", "type": "uint256"},
+                    {"name": "agentWallet", "type": "address"},
+                    {"name": "pair", "type": "string"},
                     {"name": "action", "type": "string"},
-                    {"name": "threshold", "type": "uint256"},
-                    {"name": "timestamp", "type": "uint256"}
+                    {"name": "amountUsdScaled", "type": "uint256"},
+                    {"name": "maxSlippageBps", "type": "uint256"},
+                    {"name": "nonce", "type": "uint256"},
+                    {"name": "deadline", "type": "uint256"}
                 ]
             },
             "primaryType": "TradeIntent",
             "domain": {
-                "name": "DeFiGuardian",
+                "name": "RiskRouter",
                 "version": "1",
                 "chainId": 11155111, # Ethereum Sepolia Testnet
                 "verifyingContract": self.risk_router
             },
-            "message": {
-                "action": action,
-                "threshold": threshold,
-                "timestamp": timestamp
-            }
+            "message": intent
         }
 
         encoded_message = encode_typed_data(full_message=typed_data)
