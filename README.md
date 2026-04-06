@@ -101,6 +101,7 @@ python guardian_terminal.py
 ---
 
 ## Documentation & Verification
+- **Video Presentation:** [Watch on YouTube](https://www.youtube.com/watch?v=aqis0J0T_M0)
 - **Terminal Execution Trace:** [`docs/execution_log.txt`](docs/execution_log.txt)
 - **Live On-Chain Verification:** [Etherscan Sepolia Transaction Hash](https://sepolia.etherscan.io/tx/0xf3cce690820897ca2c2c2119a3e3e686c1d925923fc8853ef6cfac53e263f646)
 
